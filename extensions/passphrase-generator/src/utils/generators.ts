@@ -90,7 +90,7 @@ export class DictionaryGenerator extends PasswordGenerator {
     const pw = [];
     for (let index = 0; index < iterations; index++) {
       const word = this.data[randomInt(this.data.length)];
-      pw.push(word[0].toUpperCase() + word.substring(1) + Math.floor(Math.random() * 9 + 1));
+      pw.push(word[0].toUpperCase() + word.substring(1) + randomInt(1, 10));
     }
 
     return [pw.join(this.preferences.delimiter), Math.floor(this.entropy * iterations)];
@@ -102,7 +102,7 @@ export class DictionaryGenerator extends PasswordGenerator {
 
     while (pw_length < length) {
       const word = this.data[randomInt(this.data.length)];
-      pw.push(word[0].toUpperCase() + word.substring(1) + Math.floor(Math.random() * 9 + 1));
+      pw.push(word[0].toUpperCase() + word.substring(1) + randomInt(1, 10));
       pw_length += word.length + 2;
     }
 
